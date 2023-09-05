@@ -11,6 +11,14 @@ var port = 3000
 
 io.on('connection',(socket)=>{
     console.log("new user conected")
+    socket.emit("newEmail",{
+        from:"sina",
+        text :"salam chetori",
+        createAt :1379
+    })
+    socket.on("newEmail",(email)=>{
+        console.log("new email",email)
+    })
     socket.on("disconnect",()=>{
         console.log("user disconected")
     })
